@@ -25,7 +25,7 @@ midwife --destination /home/user/program --sleep 1000 >> log.txt
 gregory
 --------
 
-Gregory is a python script based on the `datetime` module which can generate a list of dates based on user-defined criteria. The output can be redirected in a text file.
+Gregory is a python script based on the `datetime` module which can generate a list of dates taken from the standard [Gregorian calendar](https://en.wikipedia.org/wiki/Gregorian_calendar) based on user-defined criteria. The output can be redirected in a text file.
 To **install** the module follow this procedure:
 
 ```
@@ -36,29 +36,27 @@ sudo chmod +x /usr/local/bin/gregory
 The **optional parameters** for gregory are summarised here:
 
 ```
-optional arguments:
-  -h, --help            show this help message and exit
-  -o PATH_OUTPUT, --output PATH_OUTPUT
+-o PATH_OUTPUT, --output PATH_OUTPUT
                         path to an output file
-  -s START_DATE, --start START_DATE
+-s START_DATE, --start START_DATE
                         start-date in format: DD/MM/YYYY
-  -e END_DATE, --end END_DATE
+-e END_DATE, --end END_DATE
                         end-date in format: DD/MM/YYYY
-  -d DIVIDER_CHAR, --divide DIVIDER_CHAR
+-d DIVIDER_CHAR, --divide DIVIDER_CHAR
                         divide the date members using this character (default:
                         none)
-  -t, --twin            if given allows the presence of duplicated dates in
+-t, --twin            if given allows the presence of duplicated dates in
                         case of single and double-format
-  -q, --quiet           if given does not print any info on terminal. Useful
+-q, --quiet           if given does not print any info on terminal. Useful
                         for pipelines.
-  -c, --capital         if given sets the first letter of days (A) and months
+-c, --capital         if given sets the first letter of days (A) and months
                         (B) as capital
-  -C, --CAPITAL         if given sets all the letters of days (A) and months
+-C, --CAPITAL         if given sets all the letters of days (A) and months
                         (B) as capital
-  -l LOCALE, --locale LOCALE
+-l LOCALE, --locale LOCALE
                         set the locale language, it is used to generate months
                         and days names
-  -f [FORMAT_LIST [FORMAT_LIST ...]], --format [FORMAT_LIST [FORMAT_LIST ...]]
+-f [FORMAT_LIST [FORMAT_LIST ...]], --format [FORMAT_LIST [FORMAT_LIST ...]]
                         list of formats to produce (default: all-formats). It
                         can be any combination of year-mont-day. Capital
                         letters identify the zero-padded spelling for days (D)
@@ -73,20 +71,7 @@ optional arguments:
                         DbY=01Feb2003
 ```
 
-Now some **examples** of usage. To print on terminal all the dates between a starting point (-s) 01/01/2001 and today in format day/month/year:
-
-```
-gregory -q -s 01/01/2001 -f DMY
-```
-
-```
-01012001
-02012001
-03012001
-...
-```
-
-To print on terminal all the dates between a starting point (-s) 01/01/2001 and an ending point (-e) 05/01/2001 in format day/month:
+Now some **examples** of usage. To print on terminal all the dates between a starting point (-s) 01/01/2001 and an ending point (-e) 05/01/2001 in format day/month:
 
 ```
 gregory -q -s 01/01/2001 -e 05/01/2001 -f DM
@@ -98,6 +83,22 @@ gregory -q -s 01/01/2001 -e 05/01/2001 -f DM
 0301
 0401
 ```
+
+To print on terminal all the dates between a starting point (-s) 01/01/2001 and yesterday in format day/month/year:
+
+```
+gregory -q -s 01/01/2001 -f DMY
+```
+
+```
+01012001
+02012001
+03012001
+...
+02092017
+```
+
+
 
 To print the same range showing full-name for days and months:
 
@@ -111,6 +112,7 @@ tuesdayjanuary2001
 wednesdayjanuary2001
 thursdayjanuary2001
 ...
+saturdayseptember2017
 ```
 
 Printing the same range with a separator (-d) and starting capital letter (-c) for days and months:
@@ -124,9 +126,10 @@ Monday/January/2001
 Tuesday/January/2001
 Wednesday/January/2001
 ...
+Saturday/September/2017
 ```
 
-To save on a file called `date.txt` and show statistics:
+To save the streaming on a file called `date.txt` and show statistics:
 
 ```
 gregory -s 01/01/2001 -f ABY -o 'date.txt' 

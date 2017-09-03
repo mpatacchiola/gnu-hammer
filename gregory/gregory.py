@@ -1,5 +1,30 @@
 #!/usr/bin/python
 
+
+# gregory generates date ranges based on the Gregorian calendar
+# Copyright (C) 2017  Massimiliano Patacchiola
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#Installation:
+#sudo cp gregory.py /usr/local/bin/gregory
+#sudo chmod +x /usr/local/bin/gregory
+
+#Examples of usage:
+#gregory -q -s 01/01/2001 -e 05/01/2001 -f DMY
+#gregory -q -s 01/01/2001 -f DMY
+
 import datetime
 import time
 import argparse
